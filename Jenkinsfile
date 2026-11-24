@@ -142,7 +142,7 @@ pipeline {
                         -u "${SSH_USER}" \
                         --private-key "$SSH_KEY" \
                         ansible/playbook.yml \
-                        -e "environment=${ENV}"
+                        -e "deploy_env=${ENV}"
                     '''
                 }
             }

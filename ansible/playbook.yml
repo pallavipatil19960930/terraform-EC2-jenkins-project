@@ -41,7 +41,8 @@
 
     - name: Build Docker image
       ansible.builtin.command:
-        cmd: "docker build -t devops-web:{{ environment }} ."
+        # cmd: "docker build -t devops-web:{{ environment }} ."
+        cmd: "docker build -t devops-web:{{ deploy_env }} ."
         chdir: /opt/devops-web
 
     - name: Remove existing application container
@@ -58,4 +59,4 @@
           --name devops-web
           --restart unless-stopped
           -p 80:80
-          devops-web:{{ environment }}
+          devops-web:{{ deploy_env }}
