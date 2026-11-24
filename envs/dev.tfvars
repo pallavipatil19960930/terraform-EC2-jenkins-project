@@ -1,0 +1,5 @@
+aws_region                = "us-east-1"
+instance_type             = "t3.micro"
+environment               = "dev"
+key_name                  = "terraform-target-key"
+jenkins_security_group_id = "sg-REPLACE_WITH_JENKINS_SG_ID"
