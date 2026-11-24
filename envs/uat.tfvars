@@ -1,4 +1,5 @@
 aws_region                = "us-east-1"
+ami_id                    = "ami-0c30b7300f5fb34cd"
 instance_type             = "t3.micro"
 environment               = "uat"
 key_name                  = "terraform-target-key"

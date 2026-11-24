@@ -1,20 +1,4 @@
 
-# Get latest Ubuntu 24.04 AMI
-data "aws_ami" "ubuntu" {
-  most_recent = true
-  owners      = ["099720109477"]
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
-
 # Create Security Group
 resource "aws_security_group" "web_sg" {
   name        = "terraform-jenkins-web-sg-${var.environment}"
@@ -52,7 +36,7 @@ resource "aws_security_group" "web_sg" {
 
 # Create EC2 Instance
 resource "aws_instance" "web" {
-  ami                    = data.aws_ami.ubuntu.id
+  ami = var.ami_id
   instance_type          = var.instance_type
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
